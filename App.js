@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { KeyboardAvoidingView, Pressable, TextInput, StyleSheet, Text, View, Keyboard, Platform } from 'react-native';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import AsyncStorage from '@react-native-async-storage/async-storage'; // Ensure AsyncStorage is imported
 import Task from './components/Task'; // Ensure this component is compatible with web
 
-const STORAGE_KEY = '@task_list';
+const STORAGE_KEY = '@tasks'; // Define a storage key for AsyncStorage
 
 export default function App() {
   const [task, setTask] = useState('');
@@ -51,9 +51,9 @@ export default function App() {
           {taskItems.length === 0 ? (
             <Text style={styles.noTasksText}>No tasks saved</Text>
           ) : (
-            taskItems.map((items, index) => (
+            taskItems.map((item, index) => (
               <Pressable key={index} onPress={() => completeTask(index)}>
-                <Task text={items} keyValue={index + 1} />
+                <Task text={item} keyValue={index + 1} />
               </Pressable>
             ))
           )}
@@ -133,3 +133,32 @@ const styles = StyleSheet.create({
     fontSize: 24,
   },
 });
+
+// import React from 'react';
+// // import { View, Text, StyleSheet } from 'react-native';
+// import { NavigationContainer } from '@react-navigation/native';
+// import { createDrawerNavigator } from '@react-navigation/drawer';
+// import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+// import Home from './screens/Home';
+// import TodoList from './screens/TodoList';
+// import Transactions from './screens/Transactions';
+// import Settings from './screens/Settings';
+// import About from './screens/About';
+// import { DrawerContent } from './components/SideMenu';
+
+// const Drawer = createDrawerNavigator();
+// const Tab = createBottomTabNavigator();
+
+// export default function App() {
+//   return (
+//     <NavigationContainer>
+//       <Drawer.Navigator drawerContent={(props) => <DrawerContent {...props} />}>
+//         <Drawer.Screen name="Home" component={Home} />
+//         <Drawer.Screen name="TodoList" component={TodoList} />
+//         <Drawer.Screen name="Transactions" component={Transactions} />
+//         <Drawer.Screen name="Settings" component={Settings} />
+//         <Drawer.Screen name="About" component={About} />
+//       </Drawer.Navigator>
+//     </NavigationContainer>
+//   );
+// }

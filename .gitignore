@@ -1,13 +1,13 @@
 # Learn more https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files
 
-.vscode/
-
+# ./projetplan.md
 
 # dependencies
 node_modules/
 
 # Expo
 .expo/
+.vscode/
 dist/
 web-build/
 
